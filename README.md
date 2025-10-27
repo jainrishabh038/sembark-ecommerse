@@ -1,70 +1,125 @@
-# Getting Started with Create React App
+This project is a React.js frontend assignment built for Sembark Technologies.
+It demonstrates product listing, details, and cart management using MobX, Context API, and React Router — following all the given requirements.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🚀 Features Implemented
+🏠 Home Page (Product Listing)
 
-## Available Scripts
+Displays a responsive grid of products with name, price, and image.
 
-In the project directory, you can run:
+Each product links to its Product Detail Page.
 
-### `npm start`
+Category filter and price sort options.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Filter always re-fetches data from API (no local filtering).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Shows a loading spinner until products are fetched.
 
-### `npm test`
+📄 Product Detail Page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Route: /product/:id/details
 
-### `npm run build`
+Displays product title, description, price, and an Add to MyCart button.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Fetching by id is disabled as per requirements (data comes from session storage).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🛒 Cart Functionality
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Users can add or remove products from the cart.
 
-### `npm run eject`
+Quantity can be increased or decreased directly on the Home Page.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Cart total value and item count displayed in the footer (always visible).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Cart data persisted using sessionStorage.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+🧭 Navigation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Fixed Navbar at top with:
 
-## Learn More
+🏠 Home
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🛒 Cart
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+🛍️ Sembark Store (brand logo → navigates to Home)
 
-### Code Splitting
+Footer fixed at bottom with total cart summary.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+⚙️ Technical Stack
 
-### Analyzing the Bundle Size
+React 19 (Functional Components)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+MobX + React Context API for state management
 
-### Making a Progressive Web App
+React Router DOM v7
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Got + Express proxy for fetching from FakeStore API
 
-### Advanced Configuration
+Inline styles for responsiveness
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Lazy loading using React.lazy + Suspense
 
-### Deployment
+Cypress for end-to-end testing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+🧠 Assumptions & Limitations
 
-### `npm run build` fails to minify
+Products are fetched from the FakeStore API.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+No local filtering — category selection triggers API call each time.
+
+Product detail data not fetched individually (comes from cached session data).
+
+No authentication required.
+
+API proxy runs on port 5000, frontend on port 3000.
+
+⚡ Additional Features
+
+Loading spinner for API calls
+
+Responsive grid for mobile & desktop
+
+Fixed Navbar and Footer
+
+Smooth hover animations on cards
+
+Lazy loading for faster performance
+
+🧩 Setup & Run Instructions
+1️⃣ Clone the repository
+git clone https://github.com/YOUR_USERNAME/sembark-frontend-assignment.git
+cd sembark-frontend-assignment
+
+2️⃣ Install dependencies
+npm install
+
+3️⃣ Start the development server
+npm start
+
+This runs:
+
+Express proxy → http://localhost:5000
+
+React frontend → http://localhost:3000
+
+Then open 👉 http://localhost:3000
+
+🧪 Run Cypress Tests
+npm run cypress:open
+
+🧱 Folder Structure
+sembark-frontend/
+├── server/
+│ └── index.js # Express API proxy using got
+├── src/
+│ ├── components/ # All React components
+│ ├── context/ # MobX store + Context setup
+│ ├── api.js # API helper functions
+│ ├── App.js
+│ └── index.js
+├── package.json
+└── README.md
+
+🪪 Author
+
+Rishabh Kumar Jain
+Frontend Developer — React.js
