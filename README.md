@@ -86,8 +86,8 @@ Lazy loading for faster performance
 
 🧩 Setup & Run Instructions
 1️⃣ Clone the repository
-git clone https://github.com/YOUR_USERNAME/sembark-frontend-assignment.git
-cd sembark-frontend-assignment
+git clone https://github.com/jainrishabh038/sembark-ecommerse.git
+cd sembark-ecommerse
 
 2️⃣ Install dependencies
 npm install
